@@ -1,0 +1,9 @@
+# Next.js preview app (not part of the site)
+site/
+node_modules/
+.next/
+
+# Local tooling / OS
+.claude/
+.DS_Store
+*.log

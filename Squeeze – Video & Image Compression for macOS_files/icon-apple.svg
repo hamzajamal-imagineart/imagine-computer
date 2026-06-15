@@ -1,0 +1,33 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Union">
+<path d="M0 10H2V18H0V10Z" fill="var(--fill-0, #14141F)"/>
+<path d="M2 8H4V10H2V8Z" fill="var(--fill-0, #14141F)"/>
+<path d="M4 6H6V8H4V6Z" fill="var(--fill-0, #14141F)"/>
+<path d="M6 6H8V8H6V6Z" fill="var(--fill-0, #14141F)"/>
+<path d="M10 4H12V6H10V4Z" fill="var(--fill-0, #14141F)"/>
+<path d="M12 2H14V4H12V2Z" fill="var(--fill-0, #14141F)"/>
+<path d="M14 0H16V2H14V0Z" fill="var(--fill-0, #14141F)"/>
+<path d="M10 2H12V4H10V2Z" fill="var(--fill-0, #14141F)"/>
+<path d="M12 0H14V2H12V0Z" fill="var(--fill-0, #14141F)"/>
+<path d="M8 7H10V9H8V7Z" fill="var(--fill-0, #14141F)"/>
+<path d="M10 7H12V9H10V7Z" fill="var(--fill-0, #14141F)"/>
+<path d="M12 6H14V8H12V6Z" fill="var(--fill-0, #14141F)"/>
+<path d="M14 6H16V8H14V6Z" fill="var(--fill-0, #14141F)"/>
+<path d="M16 6H18V8H16V6Z" fill="var(--fill-0, #14141F)"/>
+<path d="M18 8H20V10H18V8Z" fill="var(--fill-0, #14141F)"/>
+<path d="M16 10H18V12H16V10Z" fill="var(--fill-0, #14141F)"/>
+<path d="M14 12H16V14H14V12Z" fill="var(--fill-0, #14141F)"/>
+<path d="M14 14H16V16H14V14Z" fill="var(--fill-0, #14141F)"/>
+<path d="M16 16H18V18H16V16Z" fill="var(--fill-0, #14141F)"/>
+<path d="M18 18H20V20H18V18Z" fill="var(--fill-0, #14141F)"/>
+<path d="M16 20H18V22H16V20Z" fill="var(--fill-0, #14141F)"/>
+<path d="M14 22H16V24H14V22Z" fill="var(--fill-0, #14141F)"/>
+<path d="M12 22H14V24H12V22Z" fill="var(--fill-0, #14141F)"/>
+<path d="M10 21H12V23H10V21Z" fill="var(--fill-0, #14141F)"/>
+<path d="M8 21H10V23H8V21Z" fill="var(--fill-0, #14141F)"/>
+<path d="M6 22H8V24H6V22Z" fill="var(--fill-0, #14141F)"/>
+<path d="M4 22H6V24H4V22Z" fill="var(--fill-0, #14141F)"/>
+<path d="M2 20H4V22H2V20Z" fill="var(--fill-0, #14141F)"/>
+<path d="M0 18H2V20H0V18Z" fill="var(--fill-0, #14141F)"/>
+</g>
+</svg>
