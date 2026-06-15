@@ -8,7 +8,7 @@ top of it, plus a green success gradient. #8A3FFC is darker than the lime, so:
   - success gradient green -> purple base + a darker shade
 Idempotent: re-running is a no-op once greens are gone.
 """
-CSS = "Squeeze – Video & Image Compression for macOS_files/index.D8XJp5Hw.css"
+CSS = "assets/index.D8XJp5Hw.css"
 
 # base #8A3FFC = rgb(138,63,252); darker shade #6E2FCC
 MAP = {

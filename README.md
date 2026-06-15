@@ -5,9 +5,9 @@ A landing page restyled and rewritten for **ImagineArt**, the AI creative studio
 
 ## What's here
 
-- `Squeeze – Video & Image Compression for macOS.html` — the page (filename is a
+- `index.html` — the page (filename is a
   leftover from the original capture; the content is now ImagineArt).
-- `Squeeze – … _files/` — page CSS / JS / image assets.
+- `assets/` — page CSS / JS / image assets.
 - `hero-frames/`, `footer-cta/frames/` — scroll-scrubbed WebGL frame sequences.
 - `Guidelines/` — the ImagineArt design kit (tokens, fonts, components, assets)
   used to drive the navbar, footer, typography and color.
@@ -20,8 +20,7 @@ A landing page restyled and rewritten for **ImagineArt**, the AI creative studio
 
 ```bash
 python3 -m http.server 8000
-# then open:
-# http://127.0.0.1:8000/Squeeze%20%E2%80%93%20Video%20%26%20Image%20Compression%20for%20macOS.html
+# then open http://127.0.0.1:8000/
 ```
 
 > The `site/` folder (a Next.js preview of the design-kit components) is intentionally

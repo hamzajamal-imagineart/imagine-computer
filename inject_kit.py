@@ -3,7 +3,7 @@
 the saved Squeeze page. Idempotent: strips any prior injection first."""
 import re, io
 
-PAGE = "Squeeze – Video & Image Compression for macOS.html"
+PAGE = "index.html"
 
 NAV_LINKS = [
     ("Old vs new", "#workflow"),

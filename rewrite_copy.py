@@ -4,7 +4,7 @@
 flexible whitespace so multiline HTML still matches. Reports any miss."""
 import re, io
 
-PAGE = "Squeeze – Video & Image Compression for macOS.html"
+PAGE = "index.html"
 s = io.open(PAGE, encoding="utf-8").read()
 
 # (old, new). For short/ambiguous strings the old is wrapped in >...< so it only
