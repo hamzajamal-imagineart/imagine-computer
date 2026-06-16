@@ -288,7 +288,7 @@ body b,body strong{font-weight:600;}
 #comparison{display:none !important;}
 /* Footer-CTA image zoom-on-scroll (drop the leftover 3D perspective so scale renders cleanly) */
 .canvasPerspective[data-astro-cid-hxscshf5]{perspective:none !important;}
-[data-cta-zoom]{transform-origin:center center;will-change:transform;transition:transform .05s linear;}
+[data-cta-zoom]{object-fit:cover !important;object-position:center !important;transform-origin:center center;will-change:transform;transition:transform .05s linear;}
 
 /* QA: FAQ "answers" accent was an ink black box -> white highlight + dark text */
 .faqHeadingAccent[data-astro-cid-z6gx6xcw]::before{background:#FFFFFF !important;border-radius:6px !important;}
