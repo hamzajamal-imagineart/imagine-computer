@@ -161,6 +161,52 @@ body b,body strong{font-weight:600;}
 /* ===== BUTTONS: rounded corners (kit primitive), no download icon ===== */
 .button[data-astro-cid-vnzlvqnm]{border-radius:10px;padding:10px var(--space-4);gap:0;}
 .tocBtn[data-astro-cid-6t6zfk7k]{border-radius:10px;padding:6px 12px;gap:0;}
+
+/* ===== HERO EYEBROW: "Imagine Computer" in Pixelify Sans ===== */
+.im-eyebrow{font-family:"Pixelify Sans","Google Sans Flex",monospace;font-weight:600;font-size:clamp(16px,1.8vw,24px);letter-spacing:.5px;color:#fff;margin:0 0 16px;line-height:1;display:block;}
+
+/* ===== Title Case section headings (GUIDELINES §4). FAQ *questions* stay
+   sentence case, so .question is intentionally excluded. ===== */
+.heading,.headingTop,.headingBottom,.headingWord,.headingAccentBase,.headingAccentText,.faqAccentBase,.headingLine{text-transform:capitalize;}
+
+/* ===== QA pass: no sharp corners, consistent accent, contrast, spacing ===== */
+/* Round everything boxy (generous radii; !important to beat scoped cid rules) */
+.badge{border-radius:999px !important;padding:6px 14px !important;}
+.numBadge{border-radius:999px !important;background:#14141F !important;color:#fff !important;padding:4px 10px !important;}
+.cardInner{border-radius:20px !important;}
+.cardIcon{border-radius:14px !important;}
+.imagePanel{border-radius:16px !important;overflow:hidden !important;}
+.ctaBar{border-radius:18px !important;padding:28px 28px !important;}
+.accordionItem[data-open=true]{border-radius:14px !important;}
+.headingAccent{border-radius:6px !important;}
+/* Contrast fix: final-CTA subtext sits on the dark section -> light it up */
+.ctaSub{color:rgba(255,255,255,0.66) !important;}
+
+/* Fix "Every Idea, One Studio": the saved HTML baked data-animated=true, so the
+   reveal never re-fires -> the dark fill text stayed clipped (invisible) and the
+   white highlight slab was only a partial band. Force the final state: full white
+   slab + revealed dark text (matches the hero accent). */
+.headingAccent[data-astro-cid-s7flme5r]::before{inset:0 !important;border-radius:6px !important;}
+.headingAccentBase[data-astro-cid-s7flme5r]{color:#171717 !important;}      /* single dark text layer on the white slab */
+.headingAccentFill[data-astro-cid-s7flme5r]{display:none !important;}        /* hide the offset duplicate layer */
+
+/* About section sits on a LIGHT-blue gradient. The monochrome pass turned its
+   accent slab + card icons to ink, leaving black boxes/circles with dark content.
+   Fix: white highlight + dark text (matches hero), dark heading text, and light
+   icon chips with their dark glyphs visible. */
+.headingAccent[data-astro-cid-v2cbyr3p]::before{background:#FFFFFF !important;inset:0 !important;border-radius:6px !important;}
+.headingAccentBase[data-astro-cid-v2cbyr3p]{color:#171717 !important;}
+.headingAccentFill[data-astro-cid-v2cbyr3p]{display:none !important;}
+.headingBottom{color:#171717 !important;}
+.cardIcon[data-astro-cid-v2cbyr3p]{background:#EDEDED !important;}
+.cardIcon[data-astro-cid-v2cbyr3p] img{filter:none !important;}
+
+/* Final CTA ("Start creating") is on the dark section: "Start" was dark-on-dark
+   (invisible). Make it light; "creating" stays dark on its white chip. */
+.headingWord[data-astro-cid-hxscshf5]{color:#FFFFFF !important;}
+
+/* About section background gradient */
+.section[data-astro-cid-v2cbyr3p]{background:linear-gradient(-89.7deg, #9fa1f2 .18%, #7e64a6 99.93%) !important;}
 </style>
 """.replace("__FONT__", FONT)
 
