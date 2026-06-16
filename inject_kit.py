@@ -209,6 +209,16 @@ body b,body strong{font-weight:600;}
   -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);
   mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);}
 #ic-features .ic-wrap,#trust .ts-wrap{position:relative;z-index:1;}
+/* Sleek moving glow that travels diagonally along the Features grid lines */
+#ic-features::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(150,170,255,.65) 1px,transparent 1px),linear-gradient(90deg,rgba(150,170,255,.65) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(circle at center,#000 0%,rgba(0,0,0,.4) 26%,transparent 56%);
+  mask-image:radial-gradient(circle at center,#000 0%,rgba(0,0,0,.4) 26%,transparent 56%);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:640px 640px;mask-size:640px 640px;
+  animation:ic-grid-glow 10s ease-in-out infinite;}
+@keyframes ic-grid-glow{0%{-webkit-mask-position:3% 10%;mask-position:3% 10%;}50%{-webkit-mask-position:97% 90%;mask-position:97% 90%;}100%{-webkit-mask-position:3% 10%;mask-position:3% 10%;}}
+@media(prefers-reduced-motion:reduce){#ic-features::after{animation:none;opacity:.35;}}
 
 /* ===== Title Case section headings (GUIDELINES §4). FAQ *questions* stay
    sentence case, so .question is intentionally excluded. ===== */
@@ -227,7 +237,8 @@ body b,body strong{font-weight:600;}
 /* ===== QA pass: no sharp corners, consistent accent, contrast, spacing ===== */
 /* Round everything boxy (generous radii; !important to beat scoped cid rules) */
 .badge{border-radius:999px !important;padding:6px 14px !important;}
-.numBadge{border-radius:999px !important;background:#EDEDED !important;color:#171717 !important;padding:4px 10px !important;border:1px solid rgba(0,0,0,0.06) !important;}
+.numBadge{width:40px !important;height:40px !important;padding:0 !important;border-radius:999px !important;background:#EDEDED !important;border:1px solid rgba(0,0,0,0.06) !important;display:flex !important;align-items:center !important;justify-content:center !important;flex:0 0 auto !important;}
+.numText{color:#171717 !important;text-align:center !important;font-size:14px !important;line-height:1 !important;font-weight:600 !important;}
 .cardInner{border-radius:20px !important;}
 .cardIcon{border-radius:14px !important;}
 .imagePanel{border-radius:16px !important;overflow:hidden !important;}
@@ -273,6 +284,11 @@ body b,body strong{font-weight:600;}
 
 /* About section background: soft shade-of-white gradient */
 .section[data-astro-cid-v2cbyr3p]{background:linear-gradient(-89.7deg, #eef1f6 .18%, #ffffff 99.93%) !important;}
+/* landscape.png is a wide thin strip: pin it to the bottom at natural ratio
+   (was stretched to fill a tall box -> blurry + zoomed). Parallax JS still
+   drifts it on scroll; overflow:hidden keeps it clipped to the section. */
+.sectionBg[data-astro-cid-v2cbyr3p]{overflow:hidden !important;}
+.landscape[data-about-parallax]{position:absolute !important;left:0 !important;bottom:0 !important;width:100% !important;height:auto !important;object-fit:contain !important;}
 
 /* QA: hide the leftover floating section-nav (redundant with the main navbar) */
 .toc[data-astro-cid-6t6zfk7k]{display:none !important;}
