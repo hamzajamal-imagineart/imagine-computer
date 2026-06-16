@@ -258,7 +258,7 @@ body b,body strong{font-weight:600;}
 <header class="im-nav" data-im-nav>
   <div class="im-nav__bar">
     <a class="im-nav__logo" href="https://www.imagine.art/"><img src="/Guidelines/assets/imagine-art-wordmark.svg" alt="ImagineArt" width="144" height="22"></a>
-    <nav class="im-nav__links"><a href="#features">Features</a><a href="#tools">Tools</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+    <nav class="im-nav__links"><a href="#features">Features</a><a href="#tools">Tools</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="https://www.imagine.art/subscription" target="_blank" rel="noopener noreferrer" data-allow-nav>Pricing</a></nav>
     <div class="im-nav__actions"><a class="im-nav__cta" href="#install">Get Started</a></div>
     <button class="im-nav__burger" type="button" aria-label="Open menu" data-im-burger><span><i></i><i></i></span></button>
   </div>
@@ -269,7 +269,7 @@ body b,body strong{font-weight:600;}
     <button class="im-menu__close" type="button" aria-label="Close menu" data-im-close><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
   </div>
   <div class="im-menu__body">
-    <div class="im-menu__links"><a href="#features" data-im-close>Features</a><a href="#tools" data-im-close>Tools</a><a href="#about" data-im-close>About</a><a href="#faq" data-im-close>FAQ</a></div>
+    <div class="im-menu__links"><a href="#features" data-im-close>Features</a><a href="#tools" data-im-close>Tools</a><a href="#about" data-im-close>About</a><a href="#faq" data-im-close>FAQ</a><a href="https://www.imagine.art/subscription" target="_blank" rel="noopener noreferrer" data-allow-nav data-im-close>Pricing</a></div>
     <div class="im-menu__rule"></div>
     <a class="im-menu__cta" href="#install" data-im-close>Get Started</a>
   </div>
@@ -539,6 +539,7 @@ Join millions of creators turning ideas into images, video and audio, free to st
   document.querySelectorAll('a[href]').forEach(function(a){
     var h=a.getAttribute('href')||'';
     var inPage=(h.charAt(0)==='#'&&h.length>1);
+    if(a.hasAttribute('data-allow-nav'))return;
     if(!inPage){
       a.addEventListener('click',function(e){e.preventDefault();});
       a.removeAttribute('target');

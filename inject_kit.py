@@ -10,6 +10,7 @@ NAV_LINKS = [
     ("Tools", "#tools"),
     ("About", "#about"),
     ("FAQ", "#faq"),
+    ("Pricing", "https://www.imagine.art/subscription"),
 ]
 
 COLUMNS = [
@@ -320,11 +321,12 @@ body b,body strong{font-weight:600;}
 """.replace("__FONT__", FONT)
 
 # ---------------- NAV HTML ----------------
+def allow(h): return ' data-allow-nav' if h.startswith("http") else ''
 nav_links_html = "".join(
-    '<a href="%s"%s>%s</a>' % (h, ext(h), l) for l, h in NAV_LINKS
+    '<a href="%s"%s%s>%s</a>' % (h, ext(h), allow(h), l) for l, h in NAV_LINKS
 )
 menu_links_html = "".join(
-    '<a href="%s"%s data-im-close>%s</a>' % (h, ext(h), l) for l, h in NAV_LINKS
+    '<a href="%s"%s%s data-im-close>%s</a>' % (h, ext(h), allow(h), l) for l, h in NAV_LINKS
 )
 NAV = """
 <header class="im-nav" data-im-nav>
@@ -403,6 +405,7 @@ JS = """
   document.querySelectorAll('a[href]').forEach(function(a){
     var h=a.getAttribute('href')||'';
     var inPage=(h.charAt(0)==='#'&&h.length>1);
+    if(a.hasAttribute('data-allow-nav'))return;
     if(!inPage){
       a.addEventListener('click',function(e){e.preventDefault();});
       a.removeAttribute('target');
