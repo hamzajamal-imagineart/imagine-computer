@@ -6,8 +6,8 @@ import re, io
 PAGE = "index.html"
 
 NAV_LINKS = [
-    ("Old vs new", "#workflow"),
-    ("Features", "#comparison"),
+    ("Features", "#features"),
+    ("Tools", "#tools"),
     ("About", "#about"),
     ("FAQ", "#faq"),
 ]
@@ -89,7 +89,7 @@ CSS = """
 .im-nav.is-scrolled .im-nav__links a{color:rgba(255,255,255,.7);}
 .im-nav.is-scrolled .im-nav__links a:hover{color:#fff;background:rgba(255,255,255,.08);}
 .im-nav__actions{display:none;align-items:center;gap:4px;flex-shrink:0;}
-.im-nav__cta{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 16px;border-radius:22px;font-size:13.5px;font-weight:500;letter-spacing:.14px;text-decoration:none;background:#fff;color:rgb(10,10,11);box-shadow:0 2px 8px rgba(0,0,0,.18);transition:all .2s;}
+.im-nav__cta{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 16px;border-radius:10px;font-size:13.5px;font-weight:500;letter-spacing:.14px;text-decoration:none;background:#fff;color:rgb(10,10,11);box-shadow:0 2px 8px rgba(0,0,0,.18);transition:all .2s;}
 .im-nav.is-scrolled .im-nav__cta{background:#fff;color:rgb(10,10,11);box-shadow:0 2px 8px rgba(0,0,0,.2);}
 .im-nav__burger{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:none;background:transparent;cursor:pointer;color:rgba(255,255,255,.85);transition:color .15s;}
 .im-nav.is-scrolled .im-nav__burger{color:rgba(255,255,255,.85);}
@@ -162,22 +162,80 @@ body b,body strong{font-weight:600;}
 .button[data-astro-cid-vnzlvqnm]{border-radius:10px;padding:10px var(--space-4);gap:0;}
 .tocBtn[data-astro-cid-6t6zfk7k]{border-radius:10px;padding:6px 12px;gap:0;}
 
-/* ===== HERO EYEBROW: "Imagine Computer" in Pixelify Sans ===== */
-.im-eyebrow{font-family:"Pixelify Sans","Google Sans Flex",monospace;font-weight:600;font-size:clamp(16px,1.8vw,24px);letter-spacing:.5px;color:#fff;margin:0 0 16px;line-height:1;display:block;}
+/* ===== HERO HEADLINE: render "Imagine Computer" in Pixelify Sans instead of
+   the white highlight slab (slab + duplicate fill layer hidden). ===== */
+.headingAccentSlab[data-astro-cid-bbe6dxrz],
+.headingAccentBg[data-astro-cid-bbe6dxrz],
+.headingAccentFill[data-astro-cid-bbe6dxrz]{display:none !important;}
+.headingAccent[data-astro-cid-bbe6dxrz]{padding:0 !important;}
+/* "Imagine Computer" = Pixelify Sans, solid white, no gradient, no box. */
+.headingAccent[data-astro-cid-bbe6dxrz]{font-size:clamp(36px,5vw,65px) !important;padding:0 !important;}
+.headingAccentBase[data-astro-cid-bbe6dxrz]{font-family:"Pixelify Sans","Google Sans Flex",monospace !important;
+  font-weight:500 !important;background:none !important;color:#fff !important;-webkit-text-fill-color:#fff !important;
+  padding:0 !important;border-radius:0 !important;text-shadow:none !important;-webkit-text-stroke:0 !important;}
+
+/* Hero content: nudge title/paragraph/CTA down a bit, set medium (500) weight */
+[data-hero-content]{padding-top:clamp(120px,15vh,180px) !important;position:relative;z-index:2;}
+[data-hero-content] .headingLine,
+[data-hero-content] .headingAccentBase,
+[data-hero-content] .description,
+[data-hero-content] .button,
+[data-hero-content] .button .label{font-weight:500 !important;}
+/* Full-viewport overlay for hero text legibility on the bright video.
+   The scroll script fades it out as the hero text leaves the screen. */
+[data-hero-overlay]{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.36) 48%, rgba(0,0,0,.20) 100%);}
+/* Hero CTA row + secondary "Contact Sales" (ghost button on the dark hero) */
+.ic-cta-row{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;}
+.ic-cta-secondary{display:inline-flex;align-items:center;justify-content:center;height:100%;padding:11px 20px;border-radius:10px;
+  font-family:"Google Sans Flex","Inter",ui-sans-serif,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:-.32px;
+  color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s,border-color .2s;}
+.ic-cta-secondary:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.75);}
+/* Balanced, slightly shorter hero CTA buttons (equal height + equal padding) */
+.ic-cta-row{gap:14px;}
+.ic-cta-row .button[data-astro-cid-vnzlvqnm],.ic-cta-row .ic-cta-secondary{height:46px !important;padding:0 22px !important;display:inline-flex;align-items:center;justify-content:center;}
+
+/* More breathing room between the hero title line and "Imagine Computer" */
+.headingRow[data-astro-cid-bbe6dxrz]{margin-top:.3em !important;}
+/* Trim the title line so it visually matches the pixel "Imagine Computer" line */
+[data-hero-content] .headingLine{font-size:clamp(32px,4.3vw,55px) !important;}
+
+/* Subtle grid lines in the dark sections (faded at top/bottom edges) */
+#ic-features,#trust{position:relative;}
+#ic-features::before,#trust::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);}
+#ic-features .ic-wrap,#trust .ts-wrap{position:relative;z-index:1;}
 
 /* ===== Title Case section headings (GUIDELINES §4). FAQ *questions* stay
    sentence case, so .question is intentionally excluded. ===== */
 .heading,.headingTop,.headingBottom,.headingWord,.headingAccentBase,.headingAccentText,.faqAccentBase,.headingLine{text-transform:capitalize;}
 
+/* ===== Relax tight tracking (was heavily negative) -> normal spacing.
+   Kickers/eyebrows keep their intentional positive tracking. ===== */
+.headingLine,.headingAccentBase,.headingAccentText,.heading,.headingTop,.headingBottom,.headingWord,.faqAccentBase,
+.ctaHeading,.ctaSub,.ctaDesc,.description,.question,.answer,
+.descTitle,.descBody,.cardText,.featureTitle,.featureDesc,.panelLabelText,
+#features h2,#features .ic-copy h3,#features .ic-body,
+#tools h2,#tools .tg-sub,.tg-name,.tg-desc,
+#trust h2,#trust .tr-sub,.tr-num,
+.button,.button .label,.ic-cta-secondary{letter-spacing:normal !important;}
+
 /* ===== QA pass: no sharp corners, consistent accent, contrast, spacing ===== */
 /* Round everything boxy (generous radii; !important to beat scoped cid rules) */
 .badge{border-radius:999px !important;padding:6px 14px !important;}
-.numBadge{border-radius:999px !important;background:#14141F !important;color:#fff !important;padding:4px 10px !important;}
+.numBadge{border-radius:999px !important;background:#EDEDED !important;color:#171717 !important;padding:4px 10px !important;border:1px solid rgba(0,0,0,0.06) !important;}
 .cardInner{border-radius:20px !important;}
 .cardIcon{border-radius:14px !important;}
 .imagePanel{border-radius:16px !important;overflow:hidden !important;}
 .ctaBar{border-radius:18px !important;padding:28px 28px !important;}
-.accordionItem[data-open=true]{border-radius:14px !important;}
+/* FAQ = clean divided list (GUIDELINES §5: no boxed chips). Drop the full
+   per-item borders + open-state fill/radius; keep only a hairline divider. */
+.accordionItem{border-top:none !important;border-left:none !important;border-right:none !important;border-radius:0 !important;border-bottom:1px solid rgba(0,0,0,0.08) !important;}
+.accordionItem[data-open=true]{background:transparent !important;border-radius:0 !important;}
 .headingAccent{border-radius:6px !important;}
 /* Contrast fix: final-CTA subtext sits on the dark section -> light it up */
 .ctaSub{color:rgba(255,255,255,0.66) !important;}
@@ -194,19 +252,54 @@ body b,body strong{font-weight:600;}
    accent slab + card icons to ink, leaving black boxes/circles with dark content.
    Fix: white highlight + dark text (matches hero), dark heading text, and light
    icon chips with their dark glyphs visible. */
-.headingAccent[data-astro-cid-v2cbyr3p]::before{background:#FFFFFF !important;inset:0 !important;border-radius:6px !important;}
-.headingAccentBase[data-astro-cid-v2cbyr3p]{color:#171717 !important;}
+/* About heading: equal sizes for both lines + remove the left indent */
+.headingAccent[data-astro-cid-v2cbyr3p]::before{display:none !important;}
+.headingAccent[data-astro-cid-v2cbyr3p]{padding:0 !important;font-size:clamp(30px,4.2vw,50px) !important;}
+.headingAccentBase[data-astro-cid-v2cbyr3p]{color:#171717 !important;font-size:clamp(30px,4.2vw,50px) !important;}
 .headingAccentFill[data-astro-cid-v2cbyr3p]{display:none !important;}
-.headingBottom{color:#171717 !important;}
-.cardIcon[data-astro-cid-v2cbyr3p]{background:#EDEDED !important;}
-.cardIcon[data-astro-cid-v2cbyr3p] img{filter:none !important;}
+.headingBottom{color:#171717 !important;font-size:clamp(30px,4.2vw,50px) !important;}
+/* About cards: more padding + clean icon tiles + separation */
+.cardInner[data-astro-cid-v2cbyr3p]{padding:30px !important;border:1px solid rgba(0,0,0,.07) !important;box-shadow:0 2px 18px rgba(0,0,0,.05) !important;border-radius:20px !important;}
+.cardIcon[data-astro-cid-v2cbyr3p]{background:#f0f0f0 !important;width:46px !important;height:46px !important;border-radius:13px !important;display:flex;align-items:center;justify-content:center;}
+.cardIcon[data-astro-cid-v2cbyr3p] svg{width:22px;height:22px;display:block;}
+.cardsRow[data-astro-cid-v2cbyr3p]{margin-top:clamp(28px,4vw,52px) !important;}
+/* remove the black CTA bar; add breathing room at the foot of the section */
+.ctaRow[data-about-cta-row]{display:none !important;}
+.section[data-astro-cid-v2cbyr3p]{padding-bottom:clamp(64px,8vw,110px) !important;}
 
 /* Final CTA ("Start creating") is on the dark section: "Start" was dark-on-dark
    (invisible). Make it light; "creating" stays dark on its white chip. */
 .headingWord[data-astro-cid-hxscshf5]{color:#FFFFFF !important;}
 
-/* About section background gradient */
-.section[data-astro-cid-v2cbyr3p]{background:linear-gradient(-89.7deg, #9fa1f2 .18%, #7e64a6 99.93%) !important;}
+/* About section background: soft shade-of-white gradient */
+.section[data-astro-cid-v2cbyr3p]{background:linear-gradient(-89.7deg, #eef1f6 .18%, #ffffff 99.93%) !important;}
+
+/* QA: hide the leftover floating section-nav (redundant with the main navbar) */
+.toc[data-astro-cid-6t6zfk7k]{display:none !important;}
+/* QA: hero bento file labels were dark-on-dark on the video -> lighten */
+.fileName{color:rgba(255,255,255,.88) !important;}
+.sizeOrig{color:rgba(255,255,255,.45) !important;}
+/* QA: hide leftover Webflow logo icon (the success-state used it) */
+.iconEl[data-icon-webflow]{display:none !important;}
+/* QA: hide the old "Every Idea, One Studio" workflow section (settings-panel mock
+   + generative-studio cards), replaced by the new Features section. */
+.sectionOuter[data-astro-cid-s7flme5r]{display:none !important;}
+/* Removed the "You shouldn't need a studio to create anything" comparison section */
+#comparison{display:none !important;}
+/* Footer-CTA image zoom-on-scroll (drop the leftover 3D perspective so scale renders cleanly) */
+.canvasPerspective[data-astro-cid-hxscshf5]{perspective:none !important;}
+[data-cta-zoom]{transform-origin:center center;will-change:transform;transition:transform .05s linear;}
+
+/* QA: FAQ "answers" accent was an ink black box -> white highlight + dark text */
+.faqHeadingAccent[data-astro-cid-z6gx6xcw]::before{background:#FFFFFF !important;border-radius:6px !important;}
+.faqAccentBase[data-astro-cid-z6gx6xcw]{color:#171717 !important;}
+.faqAccentFill[data-astro-cid-z6gx6xcw]{display:none !important;}
+/* QA: "Questions & answers" sizes were mismatched (50px vs 40px) -> align "answers" to "Questions" */
+.faqAccentBase[data-astro-cid-z6gx6xcw],.faqAccentFill[data-astro-cid-z6gx6xcw]{font-size:clamp(28px,4vw,50px) !important;}
+/* QA: open FAQ item had empty space, a leftover decorative .ditherStrip (80px)
+   below the answer. Hide it so the panel fits the answer text. */
+.accordionItem[data-open="true"] .accordionBody{grid-template-rows:1fr !important;}
+.accordionBodyInner .ditherStrip{display:none !important;}
 </style>
 """.replace("__FONT__", FONT)
 

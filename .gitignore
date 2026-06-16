@@ -7,3 +7,6 @@ node_modules/
 .claude/
 .DS_Store
 *.log
+
+# Reference copy of the old Chatly site (do not publish)
+Chatly old landing page/
