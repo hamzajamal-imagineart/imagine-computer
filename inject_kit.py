@@ -171,8 +171,8 @@ body b,body strong{font-weight:600;}
 .headingAccent[data-astro-cid-bbe6dxrz]{padding:0 !important;}
 /* "Imagine Computer" = Pixelify Sans, solid white, no gradient, no box. */
 .headingAccent[data-astro-cid-bbe6dxrz]{font-size:clamp(36px,5vw,65px) !important;padding:0 !important;}
-.headingAccentBase[data-astro-cid-bbe6dxrz]{font-family:"Pixelify Sans","Google Sans Flex",monospace !important;
-  font-weight:500 !important;background:none !important;color:#fff !important;-webkit-text-fill-color:#fff !important;
+.headingAccentBase[data-astro-cid-bbe6dxrz]{font-family:"Jersey 10","Google Sans Flex",monospace !important;
+  font-weight:400 !important;letter-spacing:.10em !important;background:none !important;color:#fff !important;-webkit-text-fill-color:#fff !important;
   padding:0 !important;border-radius:0 !important;text-shadow:none !important;-webkit-text-stroke:0 !important;}
 
 /* Hero content: nudge title/paragraph/CTA down a bit, set medium (500) weight */
@@ -303,9 +303,9 @@ body b,body strong{font-weight:600;}
 .sectionOuter[data-astro-cid-s7flme5r]{display:none !important;}
 /* Removed the "You shouldn't need a studio to create anything" comparison section */
 #comparison{display:none !important;}
-/* Footer-CTA image zoom-on-scroll (drop the leftover 3D perspective so scale renders cleanly) */
+/* Footer-CTA video scroll-scrub (drop the leftover 3D perspective; video fills the frame) */
 .canvasPerspective[data-astro-cid-hxscshf5]{perspective:none !important;}
-[data-cta-zoom]{object-fit:cover !important;object-position:center !important;transform-origin:center center;will-change:transform;transition:transform .05s linear;}
+[data-cta-zoom]{width:100% !important;height:100% !important;object-fit:cover !important;object-position:center !important;}
 
 /* QA: FAQ "answers" accent was an ink black box -> white highlight + dark text */
 .faqHeadingAccent[data-astro-cid-z6gx6xcw]::before{background:#FFFFFF !important;border-radius:6px !important;}
