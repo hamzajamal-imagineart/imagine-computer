@@ -353,11 +353,11 @@ NAV = """
 # ---------------- FOOTER HTML ----------------
 cols_html = ""
 for heading, links in COLUMNS:
-    lis = "".join('<li><a href="%s" target="_blank" rel="noopener noreferrer">%s</a></li>' % (h, l) for l, h in links)
+    lis = "".join('<li><a href="%s" target="_blank" rel="noopener noreferrer" data-allow-nav>%s</a></li>' % (h, l) for l, h in links)
     cols_html += '<div><span class="h">%s</span><ul>%s</ul></div>' % (heading, lis)
 
 socials_html = "".join(
-    '<a href="%s" target="_blank" rel="noopener noreferrer" title="%s" aria-label="%s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="%s"/></svg></a>' % (h, t, t, p)
+    '<a href="%s" target="_blank" rel="noopener noreferrer" data-allow-nav title="%s" aria-label="%s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="%s"/></svg></a>' % (h, t, t, p)
     for t, h, p in SOCIALS
 )
 
