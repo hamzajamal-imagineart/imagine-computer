@@ -62,7 +62,7 @@ SOCIALS = [
 APP_STORE_PATH = "M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
 PLAY_PATH = "M3.18 23.75c.33.18.7.26 1.08.22l13.12-7.57-2.82-2.82-11.38 10.17zM.75 1.13C.28 1.63 0 2.39 0 3.36v17.28c0 .97.28 1.73.76 2.22l.12.11 9.68-9.68v-.23L.87 3.02.75 1.13zM20.9 9.61l-2.8-1.62-3.15 3.14 3.15 3.15 2.81-1.62c.8-.46.8-1.21 0-1.67v.62zM4.26.25L17.38 7.82l-2.82 2.82L3.18.47A1.39 1.39 0 014.26.25z"
 
-FONT = "/Guidelines/fonts/google-sans-flex.ttf"
+FONT = "/Guidelines/fonts/google-sans-flex.woff2"
 LOGO = "/Guidelines/assets/imagine-art-wordmark.svg"
 F_ICON = "/Guidelines/assets/footer/logo-icon.svg"
 F_MARK = "/Guidelines/assets/footer/watermark.svg"
@@ -72,7 +72,7 @@ def ext(href): return ' target="_blank" rel="noopener noreferrer"' if href.start
 # ---------------- CSS ----------------
 CSS = """
 <style id="imagine-kit-style">
-@font-face{font-family:"Google Sans Flex";src:url("__FONT__") format("truetype");font-weight:100 900;font-display:swap;}
+@font-face{font-family:"Google Sans Flex";src:url("__FONT__") format("woff2");font-weight:100 900;font-display:swap;}
 .im-nav,.im-nav *,.im-footer,.im-footer *{box-sizing:border-box;font-family:"Google Sans Flex","Inter",ui-sans-serif,system-ui,sans-serif;}
 
 /* ===== NAVBAR ===== */
